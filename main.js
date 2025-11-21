@@ -48,7 +48,7 @@ const featuredCars = [
     {
         name: 'Maserati GranTurismo',
         price: 'Starting at $150,000',
-        image: 'https://images.unsplash.com/photo-1541348263662-e3521369a499?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        image: 'https://images.unsplash.com/photo-1613565882622-915634693439?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
         name: 'Maserati MC20',
@@ -56,9 +56,9 @@ const featuredCars = [
         image: 'https://images.unsplash.com/photo-1629899380999-281098c2e98a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-        name: 'Maserati Ghibli',
-        price: 'Starting at $76,200',
-        image: 'https://images.unsplash.com/photo-1610497858463-c3e38779974c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        name: 'Maserati Levante',
+        price: 'Starting at $84,700',
+        image: 'https://images.unsplash.com/photo-1617013349265-f0934cc42d4a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
 ];
 
