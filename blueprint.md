@@ -1,45 +1,37 @@
-# Pegasus Global Cars - Blueprint
+
+# Blueprint: Maserati-Inspired Landing Page
 
 ## Overview
 
-This document outlines the plan for creating a modern, responsive landing page for Pegasus Global Cars. The landing page will be built using HTML, CSS, and JavaScript, following modern web standards.
+This project is a single-page web application that showcases luxury cars, with a design inspired by the official Maserati website. It features a stunning hero section, a curated list of featured vehicles, and a clean, modern aesthetic.
 
-## Project Plan
+## Implemented Features
 
-1.  **Basic HTML Structure:**
-    *   Create a header with the company name and navigation.
-    *   Create a main section for the page content.
-    *   Create a footer with social media links and copyright information.
+*   **Header & Navigation:** A clean, minimalistic header with a logo and navigation links.
+*   **Hero Section:** A full-screen hero section with a captivating background image and a prominent call-to-action.
+*   **Featured Cars Section:** A section to showcase a selection of vehicles using custom Web Components (`<car-card>`).
+*   **Web Components:** The car cards are implemented as custom elements for reusability and encapsulation.
 
-2.  **Styling with CSS:**
-    *   Implement a modern design with a unique color palette and typography.
-    *   Use CSS variables for easy theming.
-    *   Ensure the layout is responsive and works on all screen sizes.
-    *   Add a subtle noise texture to the background for a premium feel.
-    *   Use multi-layered drop shadows to create a sense of depth.
+## Current Plan: Redesign to Emulate Maserati
 
-3.  **Content:**
-    *   **Hero Section:** A full-width hero section with a captivating background image and a strong call to action.
-    *   **Featured Cars Section:** A section to showcase a few of the company's best cars. This will use a web component for the car cards.
-    *   **Contact Us Form:** A simple form for users to get in touch.
+The goal of this redesign is to elevate the visual presentation of the website to match the luxury and sophistication of the Maserati brand.
 
-4.  **Interactivity with JavaScript:**
-    *   Add interactivity to the navigation and contact form.
-    *   Use ES Modules to organize the JavaScript code.
+### Plan of Action
 
-5.  **Web Components:**
-    *   Create a reusable web component for the "Featured Car" card. This will encapsulate the HTML, CSS, and JavaScript for the card, making it easy to reuse and maintain.
+1.  **Update HTML (`index.html`):**
+    *   Change the page title to "Maserati - Luxury Cars".
+    *   Update the logo text in the header to "MASERATI".
+    *   Modify the hero section's title and subtitle to be more brand-aligned.
+    *   Update the "Featured Cars" section title.
 
-## Design
+2.  **Update CSS (`style.css`):**
+    *   Introduce a new color palette (deep blue, black, white, silver).
+    *   Import and apply a new, elegant font from Google Fonts.
+    *   Redesign the header and navigation to be transparent and overlay the hero section.
+    *   Make the hero section full-viewport height (`100vh`).
+    *   Add a dark overlay to the hero image to improve text legibility.
+    *   Restyle buttons to have a more premium look.
+    *   Enhance the styling of the car cards with shadows and refined typography.
 
-*   **Aesthetics:** Modern, clean, and visually balanced layout.
-*   **Fonts:** Expressive and relevant typography.
-*   **Color:** Vibrant and energetic color palette.
-*   **Texture:** Subtle noise texture on the main background.
-*   **Visual Effects:** Multi-layered drop shadows for depth and a "lifted" look for cards.
-*   **Iconography:** Icons to enhance understanding and navigation.
-*   **Interactivity:** Interactive elements will have a "glow" effect.
-
-## Accessibility
-
-*   The application will be designed to be accessible to all users, following A11Y standards.
+3.  **Update JavaScript (`main.js`):**
+    *   Update the `featuredCars` array to include Maserati models with high-quality images.

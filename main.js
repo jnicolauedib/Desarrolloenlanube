@@ -1,106 +1,73 @@
 class CarCard extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-
-    const template = document.createElement('template');
-    template.innerHTML = `
-      <style>
-        .card {
-          width: 100%;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
-          font-family: sans-serif;
-        }
-        .card-image {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-        .card-content {
-          padding: 1.5rem;
-        }
-        .card-title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin: 0 0 1rem 0;
-        }
-        .card-description {
-          font-size: 1rem;
-          color: #666;
-        }
-         button {
-            background-color: var(--primary-color, #8400ff);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin-top: 1rem;
-        }
-        button:hover {
-            background-color: var(--primary-color-dark, #6a00cc);
-        }
-      </style>
-      <div class="card">
-        <img class="card-image" src="" alt="Car Image">
-        <div class="card-content">
-          <h3 class="card-title"></h3>
-          <p class="card-description"></p>
-          <button>View Details</button>
-        </div>
-      </div>
-    `;
-
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-  }
-
-  static get observedAttributes() {
-    return ['img', 'title', 'description'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'img') {
-      this.shadowRoot.querySelector('.card-image').src = newValue;
-      this.shadowRoot.querySelector('.card-image').alt = this.getAttribute('title') || 'Car Image';
-    } else if (name === 'title') {
-      this.shadowRoot.querySelector('.card-title').textContent = newValue;
-    } else if (name === 'description') {
-      this.shadowRoot.querySelector('.card-description').textContent = newValue;
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
     }
-  }
+
+    connectedCallback() {
+        this.shadowRoot.innerHTML = `
+            <style>
+                .car-card {
+                    width: 100%;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                .car-image img {
+                    width: 100%;
+                    height: auto;
+                }
+                .car-info {
+                    padding: 20px;
+                }
+                .car-name {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+                .car-price {
+                    font-size: 18px;
+                    color: var(--accent-color);
+                }
+            </style>
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="${this.getAttribute('image')}" alt="${this.getAttribute('name')}">
+                </div>
+                <div class="car-info">
+                    <div class="car-name">${this.getAttribute('name')}</div>
+                    <div class="car-price">${this.getAttribute('price')}</div>
+                </div>
+            </div>
+        `;
+    }
 }
 
 customElements.define('car-card', CarCard);
 
 const featuredCars = [
-  {
-    img: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Luxury Sports Car',
-    description: 'Experience the thrill of driving a high-performance luxury sports car. Power, beauty, and precision.'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Modern Electric SUV',
-    description: 'Go electric without compromising on space or style. Perfect for the family and the environment.'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: 'Classic Muscle Car',
-    description: 'A timeless American classic. Feel the raw power and hear the iconic engine roar.'
-  }
+    {
+        name: 'Maserati GranTurismo',
+        price: 'Starting at $150,000',
+        image: 'https://images.unsplash.com/photo-1541348263662-e3521369a499?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+        name: 'Maserati MC20',
+        price: 'Starting at $212,000',
+        image: 'https://images.unsplash.com/photo-1629899380999-281098c2e98a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+        name: 'Maserati Ghibli',
+        price: 'Starting at $76,200',
+        image: 'https://images.unsplash.com/photo-1610497858463-c3e38779974c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    }
 ];
 
-const container = document.querySelector('.car-card-container');
+const carList = document.getElementById('car-list');
 
 featuredCars.forEach(car => {
-  const carCard = document.createElement('car-card');
-  carCard.setAttribute('img', car.img);
-  carCard.setAttribute('title', car.title);
-  carCard.setAttribute('description', car.description);
-  container.appendChild(carCard);
+    const carCard = document.createElement('car-card');
+    carCard.setAttribute('name', car.name);
+    carCard.setAttribute('price', car.price);
+    carCard.setAttribute('image', car.image);
+    carList.appendChild(carCard);
 });
